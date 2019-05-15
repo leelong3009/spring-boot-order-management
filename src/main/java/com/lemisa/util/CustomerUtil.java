@@ -14,6 +14,7 @@ public class CustomerUtil {
 	
 	public static CustomerDto toDto(Customer customer) {
 		CustomerDto dto = new CustomerDto();
+		dto.setId(customer.getId());
 		dto.setEmail(customer.getEmail());
 		dto.setName(customer.getName());
 		return dto;

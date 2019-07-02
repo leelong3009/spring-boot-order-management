@@ -24,4 +24,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return CustomerUtil.toDto(customers);
 	}
 
+	@Override
+	public CustomerDto getById(Long id) {
+		return CustomerUtil.toDto(customerDao.getById(id));
+	}
 }

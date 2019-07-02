@@ -6,4 +6,6 @@ import com.lemisa.dto.CustomerDto;
 
 public interface CustomerService extends Service {
 	List<CustomerDto> getAll();
+
+	CustomerDto getById(Long id);
 }

@@ -6,7 +6,7 @@
 	<groupId>com.aus.ecommerse</groupId>
 	<artifactId>ecommerse</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<name>ecommerse</name>
 	<url>http://maven.apache.org</url>
@@ -67,4 +67,13 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
+			</plugin>
+		</plugins>
+	</build>
 </project>

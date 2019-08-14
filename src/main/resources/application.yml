@@ -1,0 +1,26 @@
+server:
+  http2:
+    enabled: true
+  servlet:
+    contextPath: /ecommerce
+  port: 8080
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      use-new-id-generator-mappings: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          import_files: import.sql
+        jdbc:
+          batch_size: 100
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+    show-sql: true
+  application:
+    name: ecommerce

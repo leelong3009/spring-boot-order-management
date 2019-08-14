@@ -1,9 +1,11 @@
 package com.lemisa.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -54,4 +56,25 @@ public class AbstractDao<T> implements Dao<T> {
 		List<T> list = listQuery.getResultList();
 		return list;
 	}
+	
+	protected <U> Optional<U> getSingleResult(CriteriaQuery<U> criteriaQuery) {
+        return getSingleResult(getResultList(criteriaQuery));
+    }
+	
+	protected <U> List<U> getResultList(CriteriaQuery<U> criteriaQuery) {
+        TypedQuery<U> typedQuery = entityManager.createQuery(criteriaQuery);
+        return typedQuery.getResultList();
+    }
+	
+	private <U> Optional<U> getSingleResult(List<U> list) {
+        if (list.isEmpty()) {
+            return Optional.empty();
+        }
+
+        if (list.size() > 1) {
+            throw new NonUniqueResultException("Result is not unique, found: " + list.size());
+        }
+
+        return Optional.ofNullable(list.get(0));
+    }
 }

@@ -1,7 +1,7 @@
 package com.lemisa.domain;
 
-import java.math.BigDecimal;
-
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,19 +10,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "product")
-public class Product {
-	
+@Table(name = "user")
+public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id")
+	@Access(AccessType.PROPERTY)
 	private Long id;
 	
 	@Column(name = "name", length = 250, nullable = false)
 	private String name;
 	
-	@Column(name="price", precision=11, scale=8, nullable=false)
-	private BigDecimal price;
+	@Column(name = "password", length = 250)
+	private String password;
 
 	public Long getId() {
 		return id;
@@ -40,12 +40,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public BigDecimal getPrice() {
-		return price;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
 }

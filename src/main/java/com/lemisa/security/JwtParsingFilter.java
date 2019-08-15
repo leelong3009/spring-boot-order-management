@@ -19,7 +19,7 @@ public class JwtParsingFilter extends GenericFilterBean {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		Authentication authentication = AuthenticationService.getAuthentication((HttpServletRequest) request);
+		Authentication authentication = AuthenticationUtil.getAuthentication((HttpServletRequest) request);
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		chain.doFilter(request, response);
 	}

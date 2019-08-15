@@ -21,14 +21,14 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path="/api/products")
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path="/products")
 	public ResponseEntity<List<ProductDto>> search() {
 		List<ProductDto> customers = productService.getAll();
 
 		return new ResponseEntity<List<ProductDto>>(customers, HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path="/api/products/{id}")
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path="/products/{id}")
 	public ResponseEntity<ProductDto> getById(@PathVariable Long id) {
 		return new ResponseEntity<ProductDto>(productService.getById(id), HttpStatus.OK);
 	}

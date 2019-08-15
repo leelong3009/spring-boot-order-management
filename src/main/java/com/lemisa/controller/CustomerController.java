@@ -21,14 +21,14 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path="/api/customers")
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path="/customers")
 	public ResponseEntity<List<CustomerDto>> search() {
 		List<CustomerDto> customers = customerService.getAll();
 
 		return new ResponseEntity<List<CustomerDto>>(customers, HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path="/api/customers/{id}")
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, path="/customers/{id}")
 	public ResponseEntity<CustomerDto> getById(@PathVariable Long id) {
 		return new ResponseEntity<CustomerDto>(customerService.getById(id), HttpStatus.OK);
 	}

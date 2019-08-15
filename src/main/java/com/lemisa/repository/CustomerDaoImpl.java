@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lemisa.domain.Customer;
 
-@Repository("customerDao")
+@Repository ("customerDao")
 public class CustomerDaoImpl extends AbstractDao<Customer> implements CustomerDao{
 
 }

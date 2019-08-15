@@ -45,6 +45,6 @@ public class AuthenticationProcessingFilter extends AbstractAuthenticationProces
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authResult) throws IOException, ServletException {
-		AuthenticationService.addToken(response, authResult.getName());
+		AuthenticationUtil.addToken(response, authResult.getName());
 	}
 }

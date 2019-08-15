@@ -1,4 +1,4 @@
-INSERT INTO user(name, password) VALUES ('admin', '$2y$10$j0aaqun/jEszm4k3SCxfRum1rfjK/KXmHM.dmAySsULXQK6/0arJW');
+INSERT INTO user(name, password) VALUES ('admin', '$2a$10$VKLj7FWspH8stjmInGQZtO3EI5vbpNKzmU.L6KaRU2VZb9SLtrO06');
 INSERT INTO customer(name, email) VALUES ('Long', 'longlh3009@gmail.com');
 INSERT INTO customer(name, email) VALUES ('Miko', 'mikolight@gmail.com');
 INSERT INTO product(name, price) VALUES ('Ensure', 40);
